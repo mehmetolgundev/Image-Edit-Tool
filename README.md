@@ -8,14 +8,19 @@ You can edit step by step an image by this app. For example, you can morphologic
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/3.jpg" width="450" height="350">
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/4.jpg" width="450" height="350">
 </div>
+
 <div>
+ <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/11.jpg" width="450" height="350">
  <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/12.jpg" width="450" height="350">
-<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/6.jpg" width="450" height="350">
 
 </div>
 <div>
- <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/10.jpg" width="450" height="350">
- </div>
+
+<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/6.jpg" width="450" height="350">
+<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/10.jpg" width="450" height="350">
+
+</div>
+
  ***
  <div>
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/16.jpg" width="450" height="350">
@@ -29,10 +34,7 @@ You can edit step by step an image by this app. For example, you can morphologic
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/17.jpg" width="450" height="350">
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/19.jpg" width="450" height="350">
 </div>
-<div>
-<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/11.jpg" width="450" height="350">
 
-</div>
 
 <div>
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/13.jpg" width="450" height="350">
