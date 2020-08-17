@@ -1,0 +1,639 @@
+WindowManager:
+    AnasayfaTasarim:
+    OnIslemTasarim:
+    FiltrelemeTasarim:
+    MorfolojiTasarim:
+    SegmentasyonTasarim:
+    KaydetTasarim:
+
+<AnasayfaTasarim>:
+    name: "anasayfa"
+    imageViewer:imageViewer
+    btnOpenFileDialog:btnOpenFileDialog
+    btnNext:btnNext  
+    
+    Button:
+        id:btnOpenFileDialog
+        disabled:False   
+        text:"Resim Ac"
+        size_hint: (.1,.1)
+        pos: (25,500)
+        on_press: root.openFileDialog()
+
+    Button:
+        id:btnNext   
+        disabled:False    
+        text:"Ileri"
+        size_hint: (.1,.1)
+        pos: (700,50)
+        on_release:
+            app.root.current = "onislem"
+            root.manager.transition.direction = "left"
+
+        on_press:root.Ileri()
+
+    Image:
+        id:imageViewer
+        disabled:False   
+        source:'resim_yok.jpg'
+        size_hint : (.5,.5)
+        pos : (375,275)
+          
+    
+<OnIslemTasarim>
+    name: "onislem"
+    istemiyorum:istemiyorum
+    istiyorum:istiyorum
+    onIslemResim:onIslemResim
+    btn:btn
+    __safe_id:[dropdown.__self__]
+    Label:
+        text:'On islem uygulamak\n istiyorum'
+        size_hint: (.1,.1)
+        pos : (100,500)
+
+    CheckBox:
+        id:istiyorum
+        
+        size_hint : (.1,.1)
+        pos : (0,500)
+        
+        on_active:root.onIslemIstiyorum(istiyorum)
+
+    Label:
+        text:'On islem uygulamak\n istemiyorum'
+        size_hint : (.1,.1)
+        pos : (100,450)
+        
+
+    CheckBox:
+        id:istemiyorum
+        
+        size_hint : (.1,.1)
+        pos :(0,450)
+        active:True
+        on_active:root.onIslemIstemiyorum(istemiyorum)
+
+    Button:
+        id:ileriDeneme
+        text : "Ileri"
+        size_hint : (.1,.1)
+        pos : (700,50)
+        on_release:
+            app.root.current = "filtreleme"
+            root.manager.transition.direction = "left"
+        on_press:root.resimAktar()
+
+    Button:
+        text : "Geri"
+        size_hint : (.1,.1)
+        pos : (600,50)
+        on_release:
+            app.root.current = "anasayfa"
+            root.manager.transition.direction = "right"
+
+    Image:
+        id:onIslemResim
+        source:'./temp/0.jpg'
+        width:400
+        height:400
+        size_hint : (None,None)
+        pos : (375,275)
+        
+
+       
+    
+    Button:
+        id: btn
+        text: 'On islem Menusu'
+        disabled:True
+        on_parent: dropdown.dismiss()
+        on_release: dropdown.open(self)
+        pos : (0,225)
+        size_hint: (None,None)
+        width:400
+        height: 35
+    Widget:
+        on_parent:dropdown.dismiss()
+    
+    DropDown:
+        id: dropdown
+        on_select: btn.text = '{}'.format(args[1])
+        
+        size_hint: (None,None)
+       
+
+        Button:
+            text: 'Renkli resmi gri seviye donusturme'            
+            size_hint: (None,None)
+            height: 35    
+            width:400       
+            on_release: dropdown.select('Renkli resmi gri seviye donusturme')
+            on_press:root.RGBtoGray()        
+
+        Button:
+            text: 'Resim buyultme, kucultme'
+            size_hint: (None,None)
+            height: 35      
+            width:400      
+            on_release: dropdown.select('Resim buyultme, kucultme')
+            on_press:root.resimZoom()
+           
+
+        Button:
+            text: 'Resmi yeniden boyutlandirma'
+            size_hint: (None,None)
+            height: 35      
+            width:400     
+            on_release: dropdown.select('Resmi yeniden boyutlandirma')
+            on_press:root.yenidenBoyutlandir()
+            
+
+        Button:
+            text: 'Resimden istenilen bolgenin kesilip alinmasi   '
+            size_hint: (None,None)
+            height: 35      
+            width:400          
+            on_release: dropdown.select('Resimden istenilen bolgenin kesilip alinmasi')
+            on_press:root.kesmeTiklama()
+
+        Button:
+            text: 'Histogram olusturma'
+            size_hint: (None,None)
+            height: 35   
+            width:400         
+            on_release: dropdown.select('Histogram olusturma')
+            on_press:root.HistogramGoster()
+ 
+         
+    
+
+<FiltrelemeTasarim>
+    name: "filtreleme"
+    filtrelemeistiyorum:filtrelemeistiyorum
+    filtrelemeistemiyorum:filtrelemeistemiyorum
+    filtreResim:filtreResim
+    __safe_id:[dropdown.__self__]
+    btn:btn
+    Label:
+        text:'Filtreleme uygulamak\n istiyorum'
+        size_hint: (.1,.1)
+        pos : (100,500)
+
+    
+
+    CheckBox:
+        id:filtrelemeistiyorum
+        
+        size_hint : (.1,.1)
+        pos : (0,500)
+       
+        on_active:root.filtrelemeIstiyorum(filtrelemeistiyorum)
+
+           
+
+    CheckBox:
+        id:filtrelemeistemiyorum
+        active:True
+        size_hint : (.1,.1)
+        pos :(0,450)        
+        on_active:root.filtrelemeIstemiyorum(filtrelemeistemiyorum)
+
+    Label:
+        text:'Filtreleme uygulamak\n istemiyorum'
+        size_hint : (.1,.1)
+        pos : (100,450)
+
+    
+
+    Button:
+        text : "Ileri"
+        size_hint : (.1,.1)
+        pos : (700,50)
+        on_release:
+            app.root.current = "morfoloji"
+            root.manager.transition.direction = "left"
+        on_press:root.resimAktar()
+        
+
+    Button:
+        text : "Geri"
+        size_hint : (.1,.1)
+        pos : (600,50)
+        on_release:
+            app.root.current = "onislem"
+            root.manager.transition.direction = "right"
+
+    Image:
+        id:filtreResim
+        source:'./temp/1.jpg'
+        width:400
+        height:400
+        size_hint : (None,None)
+        pos : (375,275)
+
+    
+    Button:
+        id: btn
+        text: 'Filtreleme Menusu'
+        on_parent: dropdown.dismiss()
+        on_release: dropdown.open(self)
+        pos : (0,225)
+        size_hint: (None,None)
+        width:400
+        disabled:True
+        height: 35
+
+    Widget:
+        on_parent:dropdown.dismiss()
+
+    
+    DropDown:
+        id: dropdown
+        on_select: btn.text = '{}'.format(args[1])
+        
+        size_hint: (None,None)
+       
+
+        Button:
+            text: 'Bulaniklastirma filtresi'            
+            size_hint: (None,None)
+            height: 35    
+            width:400       
+            on_release: dropdown.select('Bulaniklastirma filtresi')
+            on_press:root.bulaniklastir()
+                    
+
+        Button:
+            text: 'Keskinlestirme filtresi'
+            size_hint: (None,None)
+            height: 35      
+            width:400      
+            on_release: dropdown.select('Keskinlestirme filtresi')
+            on_press:root.keskinlestir()
+           
+
+        Button:
+            text: 'Ortanca filtresi'
+            size_hint: (None,None)
+            height: 35      
+            width:400     
+            on_release: dropdown.select('Ortanca filtresi')
+            on_press:root.ortancaUygula()
+            
+
+        Button:
+            text: 'Laplace filtresi'
+            size_hint: (None,None)
+            height: 35      
+            width:400          
+            on_release: dropdown.select('Laplace filtresi')
+            on_press:root.laplaceUygula()
+           
+
+        Button:
+            text: 'Kenar bulma filtresi'
+            size_hint: (None,None)
+            height: 35   
+            width:400         
+            on_release: dropdown.select('Kenar bulma filtresi')
+            on_press:root.kenarBul()
+           
+    
+    
+<MorfolojiTasarim>
+    name:'morfoloji'
+    btn:btn
+    istemiyorum:istemiyorum
+    istiyorum:istiyorum
+    morfolojiResim:morfolojiResim
+    __safe_id:[dropdown.__self__]
+    Label:
+        text:'Morf. Isl. uygulamak\n istiyorum'
+        size_hint: (.1,.1)
+        pos : (100,500)
+
+    
+    CheckBox:
+        id:istiyorum
+        
+        size_hint : (.1,.1)
+        pos : (0,500)       
+        on_active:root.morfolojiIstiyorum(istiyorum)
+
+           
+
+    CheckBox:
+        id:istemiyorum
+        
+        size_hint : (.1,.1)
+        pos :(0,450)
+        active:True
+        on_active:root.morfolojiIstemiyorum(istemiyorum)
+
+    Label:
+        text:'Morf. Isl. uygulamak\n istemiyorum'
+        size_hint : (.1,.1)
+        pos : (100,450)
+
+    
+
+    Button:
+        text : "Ileri"
+        size_hint : (.1,.1)
+        pos : (700,50)
+        on_release:
+            app.root.current = "segmentasyon"
+            root.manager.transition.direction = "left"
+        on_press:root.resimAktar()
+
+    Button:
+        text : "Geri"
+        size_hint : (.1,.1)
+        pos : (600,50)
+        on_release:
+            app.root.current = "filtreleme"
+            root.manager.transition.direction = "right"
+
+    Image:
+        id:morfolojiResim
+        source:'./temp/2.jpg'
+        width:400
+        height:400
+        size_hint : (None,None)
+        pos : (375,275)
+
+
+    Button:
+        id: btn
+        text: 'Morf. Isl. Menusu'
+        on_parent: dropdown.dismiss()
+        on_release: dropdown.open(self)
+        pos : (0,225)
+        size_hint: (None,None)
+        width:400
+        disabled:True
+        height: 35
+
+    Widget:
+        on_parent:dropdown.dismiss()
+
+    
+    DropDown:
+        id: dropdown
+        on_select: btn.text = '{}'.format(args[1])
+        
+        size_hint: (None,None)
+       
+
+        Button:
+            text: 'Siyah beyaz resimde genisletme'            
+            size_hint: (None,None)
+            height: 35    
+            width:400       
+            on_release: dropdown.select('Siyah beyaz resimde genisletme')
+            on_press:root.genisletme()
+                    
+
+        Button:
+            text: 'Siyah beyaz resimde erozyon'
+            size_hint: (None,None)
+            height: 35      
+            width:400      
+            on_release: dropdown.select('Siyah beyaz resimde erozyon')
+            on_press:root.erozyon()
+            
+
+        Button:
+            text: 'Siyah beyaz resimde acma'
+            size_hint: (None,None)
+            height: 35      
+            width:400          
+            on_release: dropdown.select('Siyah beyaz resimde acma')
+            on_press:root.acma()
+           
+
+        Button:
+            text: 'Siyah beyaz resimde kapama'
+            size_hint: (None,None)
+            height: 35   
+            width:400         
+            on_release: dropdown.select('Siyah beyaz resimde kapama')
+            on_press:root.kapama()
+
+<SegmentasyonTasarim>
+    name:'segmentasyon'
+    btn:btn
+    istemiyorum:istemiyorum
+    istiyorum:istiyorum
+    segmentasyonResim:segmentasyonResim
+    __safe_id:[dropdown.__self__]
+    Label:
+        text:'Segment. uygulamak\n istiyorum'
+        size_hint: (.1,.1)
+        pos : (100,500)
+
+    CheckBox:
+        id:istiyorum
+       
+        size_hint : (.1,.1)
+        pos : (0,500)
+       
+        on_active:root.segmentasyonIstiyorum(istiyorum)
+
+           
+
+    CheckBox:
+        id:istemiyorum
+        active:True
+        size_hint : (.1,.1)
+        pos :(0,450)
+        
+        on_active:root.segmentasyonIstemiyorum(istemiyorum)
+
+    Label:
+        text:'Segment. uygulamak\n istemiyorum'
+        size_hint : (.1,.1)
+        pos : (100,450)
+
+    
+
+    Button:
+        text : "Ileri"
+        size_hint : (.1,.1)
+        pos : (700,50)
+        on_release:
+            app.root.current = "kaydet"
+            root.manager.transition.direction = "left"
+        on_press:root.resimAktar()
+
+    Button:
+        text : "Geri"
+        size_hint : (.1,.1)
+        pos : (600,50)
+        on_release:
+            app.root.current = "morfoloji"
+            root.manager.transition.direction = "right"
+
+    Image:
+        id:segmentasyonResim
+        source:'./temp/3.jpg'
+        width:400
+        height:400
+        size_hint : (None,None)
+        pos : (375,275)
+
+
+    Button:
+        id: btn
+        text: 'Segmentasyon Menusu'
+        on_parent: dropdown.dismiss()
+        on_release: dropdown.open(self)
+        pos : (0,225)
+        size_hint: (None,None)
+        width:500
+        disabled:True
+        height: 35
+
+    Widget:
+        on_parent:dropdown.dismiss()
+
+    
+    DropDown:
+        id: dropdown
+        on_select: btn.text = '{}'.format(args[1])
+        
+        size_hint: (None,None)
+       
+
+        Button:
+            text: 'Gri seviye resimde esik degeri bulma'            
+            size_hint: (None,None)
+            height: 35    
+            width:500       
+            on_release: dropdown.select('Gri seviye resimde esik degeri bulma')
+            on_press:root.esikDegerBul()
+                    
+
+        Button:
+            text: 'Siyah beyaz resimde 4 lu komsuluk ile nesne bulma ve gosterme'
+            size_hint: (None,None)
+            height: 35      
+            width:500      
+            on_release: dropdown.select('Siyah beyaz resimde 4 lu komsuluk ile nesne bulma ve gosterme')
+            on_press:root.siyahBeyazNesneBul()
+            
+
+        Button:
+            text: 'Gri seviye resimde istenilen bir yontemle nesne bulma ve gosterme'
+            size_hint: (None,None)
+            height: 35      
+            width:500          
+            on_release: dropdown.select('Gri seviye resimde istenilen bir yontemle nesne bulma ve gosterme')
+            on_press:root.griNesneBul()
+           
+
+        Button:
+            text: 'Renkli resimde istenilen bir yontemle nesne bulma ve gosterme'
+            size_hint: (None,None)
+            height: 35   
+            width:500         
+            on_release: dropdown.select('Renkli resimde istenilen bir yontemle nesne bulma ve gosterme')
+            on_press:root.renkliNesneBul()
+
+
+
+<KaydetTasarim>
+    name: "kaydet"   
+    kaydetResim:kaydetResim
+    __safe_id:[dropdown.__self__]
+    
+
+   
+    Button:
+        text : "Geri"
+        size_hint : (.1,.1)
+        pos : (600,50)
+        on_release:
+            app.root.current = "segmentasyon"
+            root.manager.transition.direction = "right"
+
+    Image:
+        id:kaydetResim
+        source:'./temp/4.jpg'
+        width:400
+        height:400
+        size_hint : (None,None)
+        pos : (375,275)
+        
+    Button:
+        text : "Resmi Kaydet"
+        size_hint : (None,None)        
+        width:100
+        height:50
+        pos : (0,225)   
+        on_press:root.kaydetmeIslemi()  
+
+    Label:
+        text:'Hangi formatta kaydetmek istersiniz ? '
+        pos : (125,510)  
+        size_hint: (None,None)
+    Button:
+        id: btn
+        text: 'Formati Sec'
+        on_parent: dropdown.dismiss()
+        on_release: dropdown.open(self)
+        pos : (0,500)
+        size_hint: (None,None)
+        width:400
+        height: 35
+    Widget:
+        on_parent:dropdown.dismiss()
+    
+    DropDown:
+        id: dropdown
+        on_select: btn.text = '{}'.format(args[1])
+        
+        size_hint: (None,None)
+       
+
+        Button:
+            text: 'jpg'            
+            size_hint: (None,None)
+            height: 35    
+            width:400       
+            on_release: dropdown.select('jpg')
+            on_press:root.jpgKaydet()        
+
+        Button:
+            text: 'bmp'
+            size_hint: (None,None)
+            height: 35      
+            width:400      
+            on_release: dropdown.select('bmp')
+            on_press:root.bmpKaydet()
+           
+
+        Button:
+            text: 'tif'
+            size_hint: (None,None)
+            height: 35      
+            width:400     
+            on_release: dropdown.select('tif')
+            on_press:root.tifKaydet()
+            
+
+        Button:
+            text: 'png'
+            size_hint: (None,None)
+            height: 35      
+            width:400          
+            on_release: dropdown.select('png')
+            on_press:root.pngKaydet()
+
+        
+ 
+          
+   
+
+    
