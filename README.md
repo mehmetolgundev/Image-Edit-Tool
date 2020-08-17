@@ -70,11 +70,12 @@ You can edit step by step an image by this app. For example, you can morphologic
 </div>
 <div>
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/29.jpg" width="450" height="350">
+ <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/31.jpg" width="450" height="350">
 
 </div>
 <div>
-<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/31.jpg" width="450" height="350">
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/32.jpg" width="450" height="350">
 </div>
 
+ ***
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/21.jpg" width="450" height="350">
