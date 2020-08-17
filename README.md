@@ -19,7 +19,7 @@ You can edit step by step an image by this app. For example, you can morphologic
  ***
  <div>
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/16.jpg" width="450" height="350">
-
+<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/15.jpg" width="450" height="350">
 </div>
 
 
@@ -32,10 +32,7 @@ You can edit step by step an image by this app. For example, you can morphologic
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/13.jpg" width="450" height="350">
 
 </div>
-<div>
-<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/15.jpg" width="450" height="350">
 
-</div>
 <div>
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/17.jpg" width="450" height="350">
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/18.jpg" width="450" height="350">
