@@ -16,7 +16,13 @@ You can edit step by step an image by this app. For example, you can morphologic
 </div>
 <div>
 
+<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/13.jpg" width="450" height="350">
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/6.jpg" width="450" height="350">
+
+</div>
+<div>
+
+
 <img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/10.jpg" width="450" height="350">
 
 </div>
@@ -36,10 +42,6 @@ You can edit step by step an image by this app. For example, you can morphologic
 </div>
 
 
-<div>
-<img src="https://github.com/mehmetolg/Image-Edit-Tool/blob/master/Images/13.jpg" width="450" height="350">
-
-</div>
 
 
 <div>
